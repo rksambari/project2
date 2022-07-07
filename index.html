@@ -11,15 +11,19 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer alt="I will assume for now that there is no 'src' in root">
-	  <model-node name="table" src="chandon_compressed.glb" ar data-position="1.1m 0m -0.5m" data-orientation="0deg 0deg 50deg"></model-node>
-	  <model-node name="chair" src="bottle1.glb" ar data-position="1.1m 0m -0.5m" data-orientation="0deg 0deg -110deg"></model-node>
-	  
-	  <button slot="ar-button" id="ar-button">
-          View in AR
+    <model-viewer bounds="tight" enable-pan src="chandon_compressed.glb" ios-src="Bottle_v2.usdz" ar ar-modes="webxr scene-viewer quick-look" camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="1">
+	<model-node name="table" src="bottle1.glb" data-position="1.1m 0m -0.5m" data-orientation="0deg 0deg 50deg"></model-node>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
       </button>
-	</model-viewer>
-    <!--<script src="script.js"></script> -->
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>  
+    <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </body>
